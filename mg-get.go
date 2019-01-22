@@ -109,6 +109,7 @@ func GetImage() {
 	//out, _ := os.Open("/go/src/github.com/mongodbgridfs/o.png")
 	_, err = io.Copy(out, file)
 	// modify it to echo respoonse as following
+	// https://github.com/labstack/echo/blob/master/context.go
 	/*
 		func (c *context) Stream(code int, contentType string, r io.Reader) (err error) {
 			c.writeContentType(contentType)
