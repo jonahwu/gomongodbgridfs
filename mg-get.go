@@ -108,6 +108,15 @@ func GetImage() {
 	out, _ := os.OpenFile("/go/src/github.com/mongodbgridfs/o.png", os.O_CREATE|os.O_RDWR, 0666)
 	//out, _ := os.Open("/go/src/github.com/mongodbgridfs/o.png")
 	_, err = io.Copy(out, file)
+	// modify it to echo respoonse as following
+	/*
+		func (c *context) Stream(code int, contentType string, r io.Reader) (err error) {
+			c.writeContentType(contentType)
+			c.response.WriteHeader(code)
+			_, err = io.Copy(c.response, r)
+			return
+		}
+	*/
 	check(err)
 	err = file.Close()
 	check(err)
